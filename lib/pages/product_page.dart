@@ -1,6 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:laza/model/product_model.dart';
+import 'package:laza/pages/widget/product_widget/display_image.dart';
+import 'package:laza/pages/widget/product_widget/row_one.dart';
+import 'package:laza/pages/widget/product_widget/row_three.dart';
+import 'package:laza/pages/widget/product_widget/row_two.dart';
+import 'package:laza/pages/widget/product_widget/sliver_app_bar.dart';
 
 class ProductPage extends StatefulWidget {
   ProductPage({super.key, required this.product, required this.index});
@@ -16,31 +21,60 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: CustomScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       slivers: <Widget>[
-        SliverAppBar(
-          stretch: true,
-          stretchTriggerOffset: 300.0,
-          expandedHeight: 300.0,
-          flexibleSpace: FlexibleSpaceBar(
-            background: Hero(
-              tag: widget.index,
-              child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(widget.product.thumbnail),
-                      fit: BoxFit.cover),
+        MySliverAppBar(widget: widget),
+        SliverList(
+          delegate: SliverChildListDelegate(
+            [
+              RowOne(widget: widget),
+              RowTwo(widget: widget),
+              DisplayImagesWithListViewBuilder(widget: widget),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                child: Text(
+                  'Description',
+                  style: TextStyle(
+                    color: Color(0xFF1D1E20),
+                    fontSize: 17,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
+                child: Text(
+                  widget.product.description,
+                  style: const TextStyle(
+                    color: Color(0xFF8F959E),
+                    fontSize: 15,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              const RowThree(),
+              const SizedBox(
+                height: 400,
+              )
+            ],
           ),
-        ),
-        SliverList(
-          delegate: SliverChildListDelegate([
-            Text("nadim"),
-          ]),
         ),
       ],
     ));
   }
 }
+
+
+
+
+
+
+// List<String> size = [
+//   "S",
+//   "M",
+//   "L",
+//   "XL",
+//   "2XL",
+// ];

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:laza/model/product_model.dart';
 import 'package:laza/pages/product_page.dart';
-import 'package:laza/pages/widget/category-tile.dart';
-import 'package:laza/pages/widget/product_tile.dart';
-import 'package:laza/pages/widget/serch_widget.dart';
+import 'package:laza/pages/widget/all_product_widget/category-tile.dart';
+import 'package:laza/pages/widget/all_product_widget/product_tile.dart';
+import 'package:laza/pages/widget/all_product_widget/serch_widget.dart';
+
 import 'package:laza/service/product_service.dart';
 
 class AllProductPage extends StatelessWidget {
@@ -55,13 +56,16 @@ class AllProductPage extends StatelessWidget {
                     ),
                   ),
                   const SerchWidget(),
-                  const Text(
-                    'Choose Brand',
-                    style: TextStyle(
-                      color: Color(0xFF1D1E20),
-                      fontSize: 17,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: Text(
+                      'Choose Brand',
+                      style: TextStyle(
+                        color: Color(0xFF1D1E20),
+                        fontSize: 17,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                   FutureBuilder(
@@ -78,7 +82,7 @@ class AllProductPage extends StatelessWidget {
                         }
                       }),
                   SizedBox(
-                    height: 400,
+                    height: 380,
                     child: GridView.builder(
                       padding:
                           const EdgeInsets.only(right: 10, left: 10, top: 10),
