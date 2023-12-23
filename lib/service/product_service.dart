@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:laza/config/getit.dart';
 import 'package:laza/model/login_model.dart';
+import 'package:laza/model/product_model.dart';
+import 'package:laza/model/request_product.dart';
 import 'package:laza/service/base_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,6 +44,18 @@ class ProductServiceImp extends ProductService {
   Future deleteProduct(String id) async {
     Response response = await dio.delete('$baseUrl/$id');
     // print(response.data);
+    return response.data;
+  }
+
+  @override
+  Future updateProduct(String id, Product product) async {
+    Response response = await dio.put('$baseUrl/$id', data: product.toJson());
+    return response.data;
+  }
+
+  @override
+  Future createProduct(RequestProduct product) async {
+    Response response = await dio.post('$baseUrl/add', data: product.toJson());
     return response.data;
   }
 }
