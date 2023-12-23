@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:laza/pages/all_products_page.dart';
+import 'package:laza/config/getit.dart';
+import 'package:laza/pages/all_page.dart';
+import 'package:laza/pages/login.dart';
+import 'package:laza/pages/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setup();
   runApp(const MyApp());
 }
 
@@ -17,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AllProductPage(),
+      home: SplashScreen(),
     );
   }
 }

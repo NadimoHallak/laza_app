@@ -14,6 +14,7 @@ class Product {
   String category;
   String thumbnail;
   List images;
+  bool favourit = false;
   Product({
     required this.id,
     required this.title,

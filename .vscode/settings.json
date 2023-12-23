@@ -1,0 +1,6 @@
+{
+    "editor.scrollbar.scrollByPage": false,
+    "workbench.list.horizontalScrolling": false,
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.editor.wrapTabs": true
+}

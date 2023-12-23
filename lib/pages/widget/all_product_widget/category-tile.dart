@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CategoryTile extends StatelessWidget {
@@ -12,7 +11,7 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 345,
+      // width: 345,
       height: 50,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -22,15 +21,14 @@ class CategoryTile extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 decoration: BoxDecoration(
-                    color: const Color(0xFFEEEEEEEE),
-                    borderRadius:
-                        BorderRadius.circular(10)),
+                    color: const Color(0xFFEEEEEE),
+                    borderRadius: BorderRadius.circular(10)),
                 width: 100,
                 child: Center(
                   child: Text(
                     categorys[index],
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color(0xFF1D1E20),
                       fontSize: 13,
                       fontFamily: 'Inter',

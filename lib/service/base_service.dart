@@ -8,4 +8,9 @@ abstract class BaseService {
 abstract class ProductService extends BaseService {
   Future getAllProduct();
   Future getcategory();
+  Future getProductByCategorie(String categorieName);
+  Future serchProduct(String product);
+  Future deleteProduct(String id);
+
+  Future login(String username, String password);
 }
