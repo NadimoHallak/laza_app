@@ -42,7 +42,7 @@ class _DisplayProductState extends State<DisplayProduct> {
                       print("object");
                     },
                     child: TextField(
-                      enabled: false,
+                      // enabled: false,
                       onChanged: (value) {
                         config
                             .get<SharedPreferences>()

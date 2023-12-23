@@ -49,13 +49,17 @@ class ProductServiceImp extends ProductService {
 
   @override
   Future updateProduct(String id, Product product) async {
-    Response response = await dio.put('$baseUrl/$id', data: product.toJson());
+    Response response = await dio.patch(baseUrl + '/' + id,
+        data: product.toJson(),
+        options: Options(headers: {'Content-Type': 'application/json'}));
+    // print(response.data);
     return response.data;
   }
 
   @override
   Future createProduct(RequestProduct product) async {
     Response response = await dio.post('$baseUrl/add', data: product.toJson());
+    print(response.data);
     return response.data;
   }
 }

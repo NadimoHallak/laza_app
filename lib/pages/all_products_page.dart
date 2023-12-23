@@ -18,10 +18,18 @@ class AllProduct extends StatelessWidget {
             List<Product> products = List.generate(
                 temp.length, (index) => Product.fromMap(temp[index]));
             List<Product> serchResult = [];
-            return DisplayProduct(serchResult: products, products: products);
-          } else {
+            return DisplayProduct(serchResult: serchResult, products: products);
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasError) {
+            return const Center(
+              child: Text("No Connection"),
+            );
+          } else {
+            return const Center(
+              child: Text("Error"),
             );
           }
         });

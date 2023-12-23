@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:laza/config/getit.dart';
 import 'package:laza/model/product_model.dart';
+import 'package:laza/pages/add_page.dart';
+import 'package:laza/pages/addres_page.dart';
 import 'package:laza/pages/all_products_page.dart';
 import 'package:laza/pages/crud_page.dart';
 import 'package:laza/pages/favorite_page.dart';
@@ -31,16 +33,31 @@ class _AllProductPageState extends State<AllProductPage> {
     return Scaffold(
       drawer: Drawer(
         width: 200,
-        child: IconButton(
-            onPressed: () {
-              config.get<SharedPreferences>().setString('token4', ' ');
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => SplashScreen()));
-            },
-            icon: const Icon(
-              Icons.logout,
-              color: Colors.deepPurple,
-            )),
+        child: Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                config.get<SharedPreferences>().setString('token4', ' ');
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => SplashScreen()));
+              },
+              icon: const Icon(
+                Icons.logout,
+                color: Colors.deepPurple,
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AdressPage()));
+              },
+              icon: const Icon(
+                Icons.pages,
+                color: Colors.deepPurple,
+              ),
+            ),
+          ],
+        ),
       ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -51,7 +68,8 @@ class _AllProductPageState extends State<AllProductPage> {
       body: [
         const AllProduct(),
         const FavoritePage(),
-        CrudPage()
+        CrudPage(),
+        AddProductPage(),
       ][currentIndex],
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (value) {
@@ -68,6 +86,10 @@ class _AllProductPageState extends State<AllProductPage> {
           NavigationDestination(
             icon: Icon(Icons.favorite),
             label: 'Favorite',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.delete),
+            label: 'U & D',
           ),
           NavigationDestination(
             icon: Icon(Icons.add),

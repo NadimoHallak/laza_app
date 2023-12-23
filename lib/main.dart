@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laza/config/getit.dart';
+import 'package:laza/pages/add_page.dart';
 import 'package:laza/pages/addres_page.dart';
 import 'package:laza/pages/all_page.dart';
 import 'package:laza/pages/login.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AdressPAge(),
+      home: SplashScreen(),
     );
   }
 }

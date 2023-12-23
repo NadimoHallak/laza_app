@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:laza/pages/widget/adress_page/text_form_field.dart';
 
-class AdressPAge extends StatelessWidget {
-  AdressPAge({super.key});
+class AdressPage extends StatelessWidget {
+  AdressPage({super.key});
   GlobalKey<FormState> adressFormKey = GlobalKey<FormState>();
+  TextEditingController name = TextEditingController();
+  TextEditingController country = TextEditingController();
+  TextEditingController city = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
+  TextEditingController address = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +50,10 @@ class AdressPAge extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: MytextFormField(hintTxt: "Mrh Raju"),
+              child: MytextFormField(
+                hintTxt: "Mrh Raju",
+                controller: name,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 10),
@@ -63,7 +72,10 @@ class AdressPAge extends StatelessWidget {
                           left: 10,
                         ),
                         width: 180,
-                        child: MytextFormField(hintTxt: "Bangladesh"),
+                        child: MytextFormField(
+                          hintTxt: "Bangladesh",
+                          controller: country,
+                        ),
                       )
                     ],
                   ),
@@ -76,7 +88,10 @@ class AdressPAge extends StatelessWidget {
                           right: 10,
                         ),
                         width: 180,
-                        child: MytextFormField(hintTxt: "Sylhet"),
+                        child: MytextFormField(
+                          hintTxt: "Sylhet",
+                          controller: city,
+                        ),
                       )
                     ],
                   ),
@@ -89,7 +104,10 @@ class AdressPAge extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: MytextFormField(hintTxt: "+880 1453-987533"),
+              child: MytextFormField(
+                hintTxt: "+880 1453-987533",
+                controller: phoneNumber,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 10),
@@ -97,7 +115,10 @@ class AdressPAge extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: MytextFormField(hintTxt: "Chhatak, Sunamgonj 12/8AB"),
+              child: MytextFormField(
+                hintTxt: "Chhatak, Sunamgonj 12/8AB",
+                controller: address,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
@@ -163,43 +184,6 @@ class TextFormTitle extends StatelessWidget {
           fontFamily: 'Inter',
           fontWeight: FontWeight.w500,
         ),
-      ),
-    );
-  }
-}
-
-class MytextFormField extends StatelessWidget {
-  MytextFormField({super.key, required this.hintTxt});
-  String hintTxt;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            width: 0,
-            color: Color(0xFFF5F6FA),
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            width: 0,
-            color: Color(0xFFF5F6FA),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            width: 0,
-            color: Color(0xFFF5F6FA),
-          ),
-        ),
-        filled: true,
-        fillColor: const Color(0xFFF5F6FA),
-        hintText: hintTxt,
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:laza/config/getit.dart';
 import 'package:laza/model/product_model.dart';
+import 'package:laza/pages/update_page.dart';
 import 'package:laza/service/product_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -88,7 +89,14 @@ class _CrudPageState extends State<CrudPage> {
                               // label: 'Delete',
                             ),
                             SlidableAction(
-                              onPressed: (context) {},
+                              onPressed: (context) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => UpdateProductPage(product: crudProducts[index],),
+                                  ),
+                                );
+                              },
                               backgroundColor: Colors.deepPurple,
                               foregroundColor: Colors.white,
                               icon: Icons.update,
